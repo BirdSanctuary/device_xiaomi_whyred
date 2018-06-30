@@ -14,26 +14,25 @@
 # limitations under the License.
 #
 
-# Release name
-PRODUCT_RELEASE_NAME := whyred
-
 $(call inherit-product, build/target/product/embedded.mk)
 
 # Inherit from our custom product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
+# Inherit some common Cardinal stuff.
+$(call inherit-product, vendor/cardinal/common.mk)
 
 # Inherit from whyred device
 $(call inherit-product, device/xiaomi/whyred/device.mk)
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_NAME := lineage_whyred
+PRODUCT_NAME := cardinal_whyred
 PRODUCT_DEVICE := whyred
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi Note 5 Pro
+PRODUCT_RELEASE_NAME := whyred
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 
 TARGET_VENDOR_PRODUCT_NAME := whyred
